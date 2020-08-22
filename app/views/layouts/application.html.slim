@@ -5,18 +5,11 @@ html lang="en"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     title = 'App'
-    link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"
+    link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
     = stylesheet_link_tag "application"
     = csrf_meta_tags
 
-  header class="navbar navbar-fixed-top navbar-light bg-light"
-    div class="container"
-      = link_to "sample app", '#', id: "logo" 
-      nav
-      ul class="nav navbar-nav navbar-right"
-        li = link_to "Home",   '#' 
-        li = link_to "Help",   '#' 
-        li = link_to "Log in", '#' 
+  = render 'layouts/header'
   body
     = yield
 
