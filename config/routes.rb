@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   get 'static_pages/help'
 
   get 'login', to: 'sessions#new'
-  get 'logout', to: 'sessions#destroy'
 
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: %i[create destroy]
   resources :users
 end

@@ -1,20 +1,18 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  def setup
-    @user = users(:one)
-  end
-
   test 'should get new' do
     get new_user_path
     assert_response :success
   end
 
   test 'should get create' do
-    post users_path, params: { user: { name: @user.name,  
-                                       email: @user.email, 
-                                       password: 'secret', 
-                                       password_confirmation: 'secret' } }
+    attrs = attributes_for(:user)
+    post users_path, params: { user: attrs }
+
     assert_response :redirect
+
+    current_user = User.find_by!(email: attrs[:email])
+    assert_equal current_user[:email], attrs[:email]
   end
 end

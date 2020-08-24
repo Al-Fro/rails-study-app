@@ -1,0 +1,13 @@
+AllCops:
+  Exclude:
+    - db/**/*
+    - node_modules/**/*
+    - bin/*
+    - vendor/**/*
+
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
