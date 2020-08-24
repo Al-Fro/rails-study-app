@@ -2,6 +2,15 @@ header class="navbar navbar-fixed-top navbar-dark bg-dark"
     div class="container"
       span id="logo" DropBox
       ul class="nav"
-        li class="nav-link" = link_to "Home",   static_pages_home_path
-        li class="nav-link" = link_to "Help",   static_pages_help_path
-        li class="nav-link" = link_to "Log in", '#' 
+        li class="nav-link" 
+          = link_to "Home", static_pages_home_path, style: "color: white"
+        li class="nav-link" 
+          = link_to "Help", static_pages_help_path, style: "color: white"
+        - if logged_in?
+            li class="nav-link"
+              = link_to "Profile", user_path(@current_user[:id]), style: "color: white"
+            li class="nav-link"
+              = link_to "Log out", logout_path, style: "color: white"
+        - else
+            li class="nav-link" 
+              = link_to "Log in", login_path, style: "color: white"

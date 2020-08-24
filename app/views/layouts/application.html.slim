@@ -11,5 +11,9 @@ html lang="en"
 
   = render 'layouts/header'
   body
+    - flash.each do |message_type, message| 
+      div class="alert alert-#{message_type}" style="margin: 15px 590px; text-align: center;"
+        = message
+    end
     = yield
 
