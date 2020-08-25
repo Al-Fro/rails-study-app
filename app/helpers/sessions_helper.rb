@@ -1,6 +1,5 @@
 module SessionsHelper
   def log_in(user)
-    session[:user_id] = user.id
     reset_session
     session[:user_id] = user.id
   end
