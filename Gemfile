@@ -26,9 +26,9 @@ gem 'slim-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem 'ast', '~> 2.4'
   gem 'factory_bot_rails'
   gem 'rubocop'
-  gem 'ast', '~> 2.4'
 end
 
 group :development do

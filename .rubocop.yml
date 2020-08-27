@@ -4,6 +4,7 @@ AllCops:
     - node_modules/**/*
     - bin/*
     - vendor/**/*
+    - config/*/*
 
 
 Style/FrozenStringLiteralComment:

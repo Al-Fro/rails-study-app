@@ -8,12 +8,12 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get create' do
     user = create(:user)
-    attrs = {
+    attrs1 = {
       email: user.email,
       password: user.password
     }
-
-    post session_path, params: { session: attrs }
+    assert_equal user.attributes.slice('email'), 1
+    post session_path, params: { session: attrs1 }
     assert_response :redirect
   end
 

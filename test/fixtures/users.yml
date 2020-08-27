@@ -1,9 +1,0 @@
-one:
-  name: yy
-  email: yy@yy.yy
-  password_digest: <%= BCrypt::Password.create('secret') %>
-
-two:
-  name: MyString
-  email: MyString
-  password_digest: <%= BCrypt::Password.create('secret') %>
