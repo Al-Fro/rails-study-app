@@ -12,9 +12,6 @@ html lang="en"
   = render 'layouts/header'
   body
     = javascript_packs_with_chunks_tag 'application'
-    - flash.each do |message_type, message| 
-      div class="alert alert-#{message_type} flash-message"
-        = message
-    end
+    = print_bootstrap_alerts
     = yield
 

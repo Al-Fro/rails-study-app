@@ -1,4 +1,4 @@
-h1 Log in
+h1 = t('log_in')
 
 .col-md-4.offset-md-4
   = simple_form_for :session, url: session_path do |f| 
@@ -8,4 +8,4 @@ h1 Log in
     = f.submit t('log_in'), class: "btn btn-primary" 
   end
   ='' t('new_user')
-  = link_to t('sign_up'), new_user_path 
+  = link_to t('sign_up_now'), new_user_path 

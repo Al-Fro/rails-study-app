@@ -5,7 +5,8 @@ en:
   profile_page: Profile
   log_out: Log out
   log_in: Log in
-  sign_up: Sign up now!
+  sign_up_now: Sign up now!
+  sign_up: Sign up
   new_user: New user?
   welcome: Welcome to the DropBox
   create_account: Create my account
