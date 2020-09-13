@@ -2,6 +2,8 @@ version: '3.4'
 services:
   db:
     image: postgres:12.4
+    volumes:
+      - db_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment:
@@ -11,10 +13,12 @@ services:
     volumes:
       - .:/app
       - ~/.bash_history:/root/.bash_history
-      - bundle:/usr/local/bundle
+      - bundle_cache:/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
       - db
 volumes:
-  bundle:  
+  bundle_cache:
+  db_data:
+    

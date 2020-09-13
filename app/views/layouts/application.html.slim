@@ -11,7 +11,7 @@ html lang="en"
 
   = render 'layouts/header'
   body
-    = javascript_packs_with_chunks_tag 'application'
+    = javascript_pack_tag 'application'
     = print_bootstrap_alerts
     = yield
 
