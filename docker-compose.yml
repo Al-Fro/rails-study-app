@@ -8,6 +8,14 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_PASSWORD: postgres
+
+  webpacker:
+    build: .
+    command: 
+      - ./bin/webpack
+    ports:
+      - '3035:3035'  
+
   web:
     build: .
     volumes:
@@ -18,6 +26,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - webpacker
+
 volumes:
   bundle_cache:
   db_data:
