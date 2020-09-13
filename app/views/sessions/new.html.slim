@@ -1,0 +1,11 @@
+h1 = t('log_in')
+
+.col-md-4.offset-md-4
+  = simple_form_for :session, url: session_path do |f| 
+    = f.input :email
+    = f.input :password
+
+    = f.submit t('log_in'), class: "btn btn-primary" 
+  end
+  ='' t('new_user')
+  = link_to t('sign_up_now'), new_user_path 

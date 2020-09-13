@@ -1,0 +1,16 @@
+header.navbar.navbar-fixed-top.navbar-dark.bg-dark
+    .container
+      #logo DropBox
+      ul.nav
+        li.nav-link
+          = link_to t('home_page'), static_pages_home_path
+        li.nav-link
+          = link_to t('help_page'), static_pages_help_path
+        - if logged_in?
+            li.nav-link
+              = link_to t('profile_page'), user_path(@current_user)
+            li.nav-link
+              = link_to t('log_out'), session_path, method: :delete
+        - else
+            li.nav-link
+              = link_to t('log_in'), login_path

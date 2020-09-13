@@ -1,0 +1,13 @@
+en:
+  invalid_email_or_password: Invalid email/password combination
+  home_page: Home
+  help_page: Help
+  profile_page: Profile
+  log_out: Log out
+  log_in: Log in
+  sign_up_now: Sign up now!
+  sign_up: Sign up
+  new_user: New user?
+  welcome: Welcome to the DropBox
+  create_account: Create my account
+  hello: "Hello, %{user_name}!"

@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+
+.flash-message {
+  margin: 15px 590px; 
+  text-align: center;
+}
+ 
