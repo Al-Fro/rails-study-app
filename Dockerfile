@@ -1,11 +1,13 @@
 FROM ruby:2.7.1-alpine
 
 ARG RAILS_ROOT=/app
-ARG PACKAGES="openssl-dev postgresql-dev build-base curl nodejs yarn git less tzdata bash"
+ARG PACKAGES="openssl-dev postgresql-dev build-base curl build-essential nodejs yarn git less tzdata bash"
 
 RUN apk update \
     && apk upgrade \
-    && apk add --update --no-cache $PACKAGES
+    && apk add --update --no-cache $PACKAGES \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -o- -L https://yarnpkg.com/install.sh | bash
 
 RUN gem install bundler:2.1.4
 
