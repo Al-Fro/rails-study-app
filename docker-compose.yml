@@ -9,15 +9,9 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
 
-  webpacker:
-    build: .
-    command: 
-      - ./bin/webpack
-    ports:
-      - '3035:3035'  
-
   web:
     build: .
+    command: bash -c "./bin/webpack && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/app
       - ~/.bash_history:/root/.bash_history
@@ -26,9 +20,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
-      - webpacker
 
 volumes:
-  bundle_cache:
+  bundle_cache: 
   db_data:
     
