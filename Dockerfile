@@ -15,7 +15,7 @@ WORKDIR $RAILS_ROOT
 COPY Gemfile Gemfile.lock  ./
 RUN bundle install --jobs 5
 
-COPY package.json yarn.lock ./
+COPY .yarnrc package.json yarn.lock ./
 RUN yarn install
 
 ADD . $RAILS_ROOT
