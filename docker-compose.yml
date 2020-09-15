@@ -2,15 +2,26 @@ version: '3.4'
 services:
   db:
     image: postgres:12.4
+    volumes:
+      - db_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment:
       POSTGRES_PASSWORD: postgres
+
   web:
     build: .
+    command: bash -c "./bin/webpack && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/app
+      - ~/.bash_history:/root/.bash_history
+      - bundle_cache:/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
       - db
+
+volumes:
+  bundle_cache: 
+  db_data:
+    
