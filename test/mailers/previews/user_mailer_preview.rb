@@ -1,4 +1,7 @@
-# Preview all emails at http://localhost:3000/rails/mailers/user_mailer
 class UserMailerPreview < ActionMailer::Preview
+	def user_activation
+		@user = User.first
 
+	  UserMailer.with(user: @user).user_activation.deliver_now
+	end
 end

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    UserMailer.with(user: @user).user_activation.deliver_later
+    UserMailer.with(user: @user).user_activation.deliver_now
 
     if @user.save
       log_in @user

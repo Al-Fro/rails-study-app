@@ -11,3 +11,4 @@ en:
   welcome: Welcome to the DropBox
   create_account: Create my account
   hello: "Hello, %{user_name}!"
+  activate: "Activate"
