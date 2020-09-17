@@ -9,11 +9,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    UserMailer.with(user: @user).user_activation.deliver_now
 
     if @user.save
-      log_in @user
-      redirect_to @user
+      UserMailer.with(user: @user).user_activation.deliver_now
+
+      redirect_to root_url, flash: { success: t('flash.check_email') }
     else
       render :new
     end

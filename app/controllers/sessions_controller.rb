@@ -1,15 +1,18 @@
 class SessionsController < ApplicationController
-  def new; end
 
   def create
-    user = User.find_by(email: session_params[:email])
-    if user&.authenticate(session_params[:password])
-      log_in user
-      redirect_to user
-    else
-      flash.now[:danger] = t('invalid_email_or_password')
+    @user = User.find_by(email: session_params[:email])
+    
+    unless @user&.authenticate(session_params[:password])
+      flash.now[:danger] = t('flash.invalid_email_or_password')
       render :new
+      return
     end
+
+    return redirect_to root_url, flash: { danger: t('flash.account_not_activated') } unless @user.activated?
+      
+    log_in @user
+    redirect_to @user
   end
 
   def destroy

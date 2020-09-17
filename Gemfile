@@ -33,10 +33,10 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.0'
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
-  gem "letter_opener"
-  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :test do
