@@ -1,10 +1,14 @@
 class AccountActivationsController < ApplicationController
+
   def edit
-    user = User.find_by(id: params[:id])
+    decoded_id = Users::ActivationCode.decode(params[:encode_id])
+    user = User.find_by(id: decoded_id)
 
-    return redirect_to root_url, flash: { danger: t('flash.invalid_activation_link') } unless user && !user.activated
+    unless user && !user.activated
+      return redirect_to root_url, flash: { danger: t('flash.invalid_activation_link') }
+    end
 
-    user.activate
+    Users::Activate.call(user)
     log_in user
     redirect_to user, flash: { success: t('flash.account_activated') }
   end

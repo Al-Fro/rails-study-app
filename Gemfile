@@ -17,6 +17,7 @@ gem 'webpacker', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
 
 gem 'bootstrap', '4.5.2'
 gem 'simple_form'
@@ -29,6 +30,7 @@ group :development, :test do
   gem 'ast', '~> 2.4'
   gem 'factory_bot_rails'
   gem 'rubocop'
+  gem 'byebug'
 end
 
 group :development do
