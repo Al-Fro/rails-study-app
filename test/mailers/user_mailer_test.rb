@@ -1,7 +1,19 @@
 require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'user_activation' do
+    user = create(:user)
+    encode_id = Users::ActivationCode.encode(user.id)
+
+    email = UserMailer.with(user: user, encode_id: encode_id).user_activation
+
+    assert_emails 1 do
+      email.deliver_now
+    end
+
+    assert_equal ['noreply@example.com'], email.from
+    assert_equal [user.email], email.to
+    assert_equal 'Please, activate account', email.subject
+    assert email.body.to_s.include?("Hi, #{user.name}!")
+  end
 end
