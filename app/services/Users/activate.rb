@@ -5,8 +5,7 @@ module Users
     end
 
     def call
-      @user.update_columns(activated: true)
+      @user.update!(activated: true)
     end
   end
 end
-

@@ -28,9 +28,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'ast', '~> 2.4'
+  gem 'byebug'
   gem 'factory_bot_rails'
   gem 'rubocop'
-  gem 'byebug'
 end
 
 group :development do

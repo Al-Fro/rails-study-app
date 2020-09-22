@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersActivationTest < ActiveSupport::TestCase
   test 'encode/decode' do
-    code = Users::ActivationCode.encode('foo')
-    assert_equal 'foo', Users::ActivationCode.decode(code) 
+    code = Users::ActivationKey.encode('foo')
+    assert_equal 'foo', Users::ActivationKey.decode(code)
   end
 end

@@ -3,6 +3,6 @@ module ApplicationHelper
     flash.each do |message_type, message|
       concat(content_tag(:div, message, class: ['alert', "alert-#{message_type}", 'flash-message']))
     end
-    return
+    nil
   end
 end
