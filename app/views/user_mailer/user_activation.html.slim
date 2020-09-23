@@ -1,5 +1,5 @@
 h5 Hi, #{@user.name}!
 p We're excited to have you get started. First, you need to confirm your account. Just press the button below.
 
-a href=edit_account_activation_url(@user, registration_token: @encode_id) class='btn btn-primary'
+a href=account_activations_url(activation_token: @encode_id) class='btn btn-primary'
   = t('activate')

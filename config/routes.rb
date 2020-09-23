@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   resource :session, only: %i[create destroy]
   resources :users
-  resources :account_activations, only: :edit
+  resources :account_activations, only: :index
 end
