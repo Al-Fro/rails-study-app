@@ -4,8 +4,8 @@ class AccountActivationsController < ApplicationController
     user = User.find_by(id: decoded_id)
 
     return redirect_to root_url, flash: { danger: t('flash.invalid_activation_link') } if user&.activated
-
-    Users::Activate.call(user)
+    return redirect_to root_url, flash: { danger: t('flash.error_update_user') } unless Users::Activate.call(user)
+    
     log_in user
     redirect_to user, flash: { success: t('flash.account_activated') }
   end

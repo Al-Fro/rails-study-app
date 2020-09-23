@@ -3,6 +3,6 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @encode_id = params[:encode_id]
 
-    mail(to: @user.email, subject: 'Please, activate account')
+    mail(to: @user.email, subject: t('mail.activate_account'))
   end
 end

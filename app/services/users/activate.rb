@@ -5,7 +5,7 @@ module Users
     end
 
     def call
-      @user.update!(activated: true)
+      @user.update!(activated: true) if @user.valid?
     end
   end
 end

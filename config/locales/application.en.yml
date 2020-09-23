@@ -5,6 +5,7 @@ en:
     account_activated: Account activated!
     invalid_activation_link: Invalid activation link
     account_not_activated: Account not activated. Check your email for the activation link.
+    error_update_user: Failed to activate account, please try again
   home_page: Home
   help_page: Help
   profile_page: Profile
@@ -17,3 +18,5 @@ en:
   create_account: Create my account
   hello: "Hello, %{user_name}!"
   activate: "Activate"
+  mail: 
+    activate_account: Please, activate account
