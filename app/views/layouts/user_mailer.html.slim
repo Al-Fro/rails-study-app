@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+    title Email template
+    link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    = stylesheet_pack_tag 'application'
+    = csrf_meta_tags
+
+  body.container.col-6
+    table.table
+      thead.thead-dark
+        tr
+          th.text-center
+            h4.text-white
+              b DropBox
+        tr
+          td
+            = yield            
+        tr
+          td.text-center
+            p.text-muted
+              small &copy; 2020, DropBox
+              

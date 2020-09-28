@@ -17,6 +17,7 @@ gem 'webpacker', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
 
 gem 'bootstrap', '4.5.2'
 gem 'simple_form'
@@ -27,12 +28,15 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'ast', '~> 2.4'
+  gem 'byebug'
   gem 'factory_bot_rails'
   gem 'rubocop'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.0'
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
 end
