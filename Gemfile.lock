@@ -81,6 +81,7 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     concurrent-ruby (1.1.7)
+    connection_pool (2.2.3)
     crass (1.0.6)
     erubi (1.9.0)
     execjs (2.7.0)
@@ -168,6 +169,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.2.2)
     regexp_parser (1.7.1)
     rexml (3.2.4)
     rubocop (0.89.1)
@@ -197,6 +199,10 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.0)
+    sidekiq (6.1.2)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -261,9 +267,11 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
+  redis
   rubocop
   sass-rails (>= 6)
   selenium-webdriver
+  sidekiq
   simple_form
   slim-rails
   tzinfo-data

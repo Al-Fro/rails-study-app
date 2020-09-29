@@ -5,7 +5,7 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - 5432:5432
     environment:
       POSTGRES_PASSWORD: postgres
 
@@ -17,11 +17,26 @@ services:
       - ~/.bash_history:/root/.bash_history
       - bundle_cache:/usr/local/bundle
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on:
       - db
+      - redis
+      - sidekiq
+
+  redis:
+    image: redis:5.0.9-alpine
+    ports:
+      - 6379:6379
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    depends_on:
+      - redis
+    volumes:
+      - .:/app
+      - bundle_cache:/usr/local/bundle
 
 volumes:
   bundle_cache: 
   db_data:
-    
