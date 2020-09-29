@@ -9,9 +9,16 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'should get create' do
     attrs = attributes_for(:user)
     post users_path(user: attrs)
-    assert_emails 1
+    
+    user = User.find_by(email: attrs[:email])
+    encode_id = Users::ActivationCode.encode(user.id)
+    email = UserMailer.with(user: user, encode_id: encode_id).user_activation
+
+    assert_emails 1 do
+      email.deliver_later
+    end
 
     assert_response :redirect
-    assert User.find_by(email: attrs[:email])
+    assert user
   end
 end
