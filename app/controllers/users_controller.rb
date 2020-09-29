@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     return render :new unless @user.save
 
     encode_id = JwtService.encode('activation_key', @user.id)
-    UserMailer.with(user: @user, encode_id: encode_id).user_activation.deliver_now
+    SendActivationMailWorker.perform_async(@user.id, encode_id)
     redirect_to root_url, flash: { success: t('flash.check_email') }
   end
 
