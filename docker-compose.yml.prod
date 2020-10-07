@@ -1,0 +1,26 @@
+version: '3.4'
+services:
+  db:
+    image: postgres:12.4
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  web:
+    restart: always
+    image: 901276595/rails-study-app
+    command: bash -c "bundle exec rails s -p 3333 -b '0.0.0.0'"
+    volumes:
+      - ~/.bash_history:/root/.bash_history
+      - bundle_cache:/usr/local/bundle
+    ports:
+      - "3333:3333"
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: production
+      EDITOR: vim
+      RAILS_SERVE_STATIC_FILES: packs
+
+volumes:
+  bundle_cache:
+  db_data:
