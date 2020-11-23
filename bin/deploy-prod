@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+docker build .
+docker push 901276595/rails-study-app:latest
+
+scp docker-compose.yml.prod deployer@10.8.1.5:/home/deployer/rails-study-app
+scp Dockerfile deployer@10.8.1.5:/home/deployer/rails-study-app
+
+ssh deployer@10.8.1.5
+
